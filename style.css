@@ -1,0 +1,224 @@
+:root {
+    --fontSz: 30px; /* Reduced font size */
+    --dvWidth: 40px; /* Reduced width */
+    --dvHeight: 40px; /* Reduced height */
+    --divColor: #fff;
+    --btnColor: #000;
+    --btnTxtColor: #fff;
+}
+
+body {
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjusted height to center the tree */
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Adjusted gap for even spacing */
+    margin: 20px auto;
+    width: auto;
+    height: auto;
+}
+
+.clsTile, .numDiv, .key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--dvWidth);
+    height: var(--dvHeight);
+    flex: 0 0 120px;
+}
+
+.clsTile {
+    flex-wrap: wrap;
+    font-size: calc(var(--dvWidth) - 10);
+}
+
+.numDiv {
+    background-color: var(--divColor);
+    margin-bottom: 10px;
+    font-size: var(--fontSz);
+    font-weight: bold;
+    border: 1px dashed #000;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.key {
+    border-bottom: 2px solid #000;
+    font-size: 40px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    top: 20px;
+    font-weight: bold;
+    flex-wrap: wrap;
+    border: 1px solid #000;
+    cursor: pointer;
+}
+
+.btn {
+    margin-top: 50px;
+    width: 100px;
+    height: 50px;
+    background-color: var(--btnColor);
+    color: var(--btnTxtColor);
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    background-color: gray !important;
+}
+
+.shorter {
+    width: 75px;
+    height: 30px;
+    vertical-align: text-bottom;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+.hover {
+    background-color: lightblue !important;
+}
+
+.numClicked {
+    background-color: lightblue;
+}
+
+.correct {
+    background-color: lightgreen;
+}
+
+.incorrect {
+    background-color: lightcoral;
+}
+
+.divStart {
+    animation: kfStart 3s;
+}
+
+.dragging {
+    opacity: 0.5;
+}
+
+.drag-over {
+    border: 2px dashed #000;
+}
+
+.hint {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.christmas-tree {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.branch {
+    background-color: green;
+    height: 20px;
+    margin: 2px 0;
+}
+
+.trunk {
+    background-color: brown;
+    width: 40px;
+    height: 40px;
+}
+
+.presents {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.present {
+    background-color: red;
+    padding: 10px;
+    cursor: pointer;
+    width: 100px; /* 5 times bigger */
+    height: 100px; /* 5 times bigger */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid gold; /* Look like wrapped gifts */
+    position: relative;
+}
+
+.present::before, .present::after {
+    content: '';
+    position: absolute;
+    background-color: gold;
+}
+
+.present::before {
+    width: 100%;
+    height: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.present::after {
+    width: 10px;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.grid-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    cursor: pointer;
+    background-color: lightgray;
+    pointer-events: none;
+}
+
+.grid-box.active {
+    background-color: lightgreen;
+    pointer-events: auto;
+}
+
+@keyframes kfStart {
+    0% {
+        color: white;
+        position: absolute;
+    }
+    100% {
+        color: black;
+        position: relative;
+    }
+}
+
+.hint{
+    color: blue;
+    font-size: 20px;
+    
+    &::before{
+        content: 'Instructions: ';
+        font-weight: bold;
+        color: red;
+    }
+
+}
