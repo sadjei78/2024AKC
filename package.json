@@ -2,10 +2,10 @@
   "name": "nodetest",
   "version": "1.0.0",
   "type": "module",
-  "main": "server.js",
+  "main": "server-files/server.js",
   "scripts": {
-    "dvStart": "nodemon -r dotenv/config server.js",
-    "start": "node server.js"
+    "dvStart": "nodemon -r dotenv/config server-files/server.js",
+    "start": "node server-files/server.js"
   },
   "author": "",
   "license": "ISC",
