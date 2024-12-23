@@ -1,0 +1,3 @@
+[submodule "server-files"]
+	path = server-files
+	url = https://github.com/sadjei78/24aksvr.git

@@ -55,14 +55,13 @@ function fnCreateButtons() {
 
     resetBtn.addEventListener("click", () => {
         if (parseInt(clickedclue, 10) === 3) {
-            document.querySelector(".btn.shorter").remove();
-            fnCreateGrid(clickedclue);
-        }else{
+            resetMagicSquare();
+        } else {
             document.querySelectorAll(".key").forEach((div) => {
                 div.textContent = '';
                 next = 0;
                 div.classList.remove("correct", "incorrect");
-            })
+            });
         }
     });
 
@@ -81,6 +80,12 @@ function fnCreateButtons() {
     dvButtons.innerHTML = '';
     dvButtons.appendChild(resetBtn);
     dvButtons.appendChild(submitBtn);
+}
+
+function resetMagicSquare() {
+    const colCount = parseInt(mainDiv.dataset.colcount, 10);
+    const arrNums = Array.from(document.querySelectorAll('.numDiv')).map(div => parseInt(div.dataset.val, 10));
+    fnCreateMagicSquare(arrNums, [], { width: '40px', height: '40px' }, colCount);
 }
 
 function fnCreateGrid(indxClue) {
